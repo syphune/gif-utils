@@ -1,6 +1,6 @@
 # gif-utils
 
-A lightweight, in‑browser GIF editor focused on fast trimming, cropping, previewing, and export — no uploads, everything stays local.
+A lightweight, in-browser GIF editor focused on fast trimming, cropping, previewing, and export — no uploads, everything stays local.
 
 ## Features
 
@@ -26,8 +26,8 @@ Open the URL shown in terminal (usually `http://localhost:5173`).
 **Preview**
 - **Scroll / trackpad**: zoom in/out at cursor
 - **Shift + scroll**: pan
-- **Left‑drag**: pan (when not cropping)
-- **Middle‑drag**: pan
+- **Left-drag**: pan (when not cropping)
+- **Middle-drag**: pan
 
 **Timeline**
 - Drag **handles** to set trim range
@@ -55,7 +55,7 @@ Release automation uses **release-please** on `main`. Push commits and it will o
 - React + Vite + TypeScript
 - gifuct-js for decoding
 - gif.js for encoding
-n
+
 ## License
 
-MIT
+Apache-2.0
