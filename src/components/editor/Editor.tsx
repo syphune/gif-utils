@@ -4,7 +4,7 @@ import { Stage } from './Stage';
 import { Timeline } from './Timeline';
 import { Toolbar } from './Toolbar';
 import { FileUpload } from '@/components/ui/FileUpload';
-import { ArrowLeft, Download, Play, Pause, Loader2, ZoomIn, ZoomOut, RotateCcw, Undo2, Redo2 } from 'lucide-react';
+import { ArrowLeft, Download, Play, Pause, Loader2, ZoomIn, ZoomOut, RotateCcw, Undo2, Redo2, Github } from 'lucide-react';
 import { type GifData, parseGifFile, generateThumbnails, cropGif } from '@/lib/gif-processor';
 import { type Crop, type PixelCrop } from 'react-image-crop';
 
@@ -641,6 +641,15 @@ export function Editor() {
                     <div className="max-w-xl w-full space-y-8 text-center">
                         <h1 className="text-4xl font-bold tracking-tight">GIF Editor</h1>
                         <p className="text-muted-foreground">Upload a GIF to start editing locally.</p>
+                        <a
+                            href="https://github.com/syphune/gif-utils"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
+                        >
+                            <Github className="h-4 w-4" />
+                            github.com/syphune/gif-utils
+                        </a>
                         <div className="border-2 border-dashed border-border rounded-xl p-12 hover:bg-accent/50 transition-colors">
                             <FileUpload onFileSelect={handleFileSelect} accept="image/gif" />
                         </div>
@@ -660,6 +669,16 @@ export function Editor() {
                     <span className="font-medium truncate max-w-[200px]">{file.name}</span>
                 </div>
                 <div className="flex items-center gap-2">
+                    <a
+                        href="https://github.com/syphune/gif-utils"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="px-3 py-1.5 text-sm font-medium border border-border rounded-full hover:bg-accent inline-flex items-center gap-2"
+                        title="GitHub"
+                    >
+                        <Github className="h-4 w-4" />
+                        GitHub
+                    </a>
                     <div className="flex items-center bg-secondary rounded-lg border border-border mr-2">
                         <button
                             onClick={handleUndo}
