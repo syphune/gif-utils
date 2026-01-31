@@ -1,73 +1,61 @@
-# React + TypeScript + Vite
+# gif-utils
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A lightweight, in‑browser GIF editor focused on fast trimming, cropping, previewing, and export — no uploads, everything stays local.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Trim timeline** with draggable handles
+- **Drag playhead** to scrub frames
+- **Zoom timeline** (Ctrl/Cmd/Alt + wheel)
+- **Preview zoom & pan** like an editor
+- **Crop tool** with live overlay and apply on Enter
+- **Undo / Redo** for trim & crop
+- **Export** trimmed/cropped GIF
 
-## React Compiler
+## Quick Start
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Open the URL shown in terminal (usually `http://localhost:5173`).
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Controls
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+**Preview**
+- **Scroll / trackpad**: zoom in/out at cursor
+- **Shift + scroll**: pan
+- **Left‑drag**: pan (when not cropping)
+- **Middle‑drag**: pan
+
+**Timeline**
+- Drag **handles** to set trim range
+- Drag **yellow range** to move entire trim window
+- Drag **playhead** to scrub
+- Ctrl/Cmd/Alt + **wheel**: zoom timeline
+
+**Crop**
+- Select **Crop** tool
+- Drag crop box
+- Press **Enter** to apply (preview updates)
+
+**Shortcuts**
+- `Ctrl/Cmd + Z`: Undo
+- `Ctrl/Cmd + Shift + Z` or `Ctrl/Cmd + Y`: Redo
+- `[` / `]`: Set trim start / end
+- `←` / `→`: Step frame
+
+## Release
+
+Release automation uses **release-please** on `main`. Push commits and it will open a release PR and tag on merge.
+
+## Tech
+
+- React + Vite + TypeScript
+- gifuct-js for decoding
+- gif.js for encoding
+n
+## License
+
+MIT
